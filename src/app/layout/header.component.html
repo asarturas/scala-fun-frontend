@@ -1,8 +1,9 @@
 <md-toolbar>
-  <span>
-    Scala Fun
-    <small>with <3 by <a target="_blank" href="http://spikerlabs.com">spiker labs</a></small>
-  </span>
-  <span class="spacer"></span>
+  <img usemap="logo-map" name="logo" id="logo" height="64" src="/assets/logo-full.png" title="Scala Videos - assembled with love by spikerlabs"/>
+  <map name="logo-map" id="logo-map">
+    <area href="http://spikerlabs.com" shape="rect" coords="150,40,267,64" target="_blank">
+  </map>
+  <span class="spacer title">{{ currentlyPlaying }}</span>
   <app-player-controls></app-player-controls>
+  <button md-icon-button mdTooltip="About" (click)="about()"><md-icon>help_outline</md-icon></button>
 </md-toolbar>
