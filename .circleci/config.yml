@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    working_directory: /tmp/build
+    docker:
+      - image: spikerlabs/angular4-cli
+    steps:
+      - checkout
+      - run:
+          name: install git
+          command: apk add --no-cache git
+      - setup_remote_docker
+# todo: configure tests to run in CI
+#      - run:
+#          name: Run test
+#          command: ng test
+      - run:
+          name: Install git (for versioning)
+          command: apk instal
+      - run:
+          name: Setup app dependencies
+          command: |
+            npm install
+            npm install "scala-fun-client" --save --registry https://npm-proxy.fury.io/${FURY_TOKEN}/asarturas/
+      - run:
+          name: Build docker image
+          command: |
+            apk add --no-cache docker
+            docker build -t "spikerlabs/scala-fun-frontend:$(git describe --tags)"
+      - deploy:
+          name: Publish to Docker Hub
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker login -u ${DOCKER_LOGIN} -p ${DOCKER_PASSWORD}
+              docker push "spikerlabs/scala-fun-frontend:$(git describe --tags)"
+            fi
