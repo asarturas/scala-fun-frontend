@@ -9,24 +9,22 @@ jobs:
       - run:
           name: install git
           command: apk add --no-cache git
-      - setup_remote_docker
 # todo: configure tests to run in CI
 #      - run:
 #          name: Run test
 #          command: ng test
       - run:
-          name: Install git (for versioning)
-          command: apk instal
+          name: Install all dependencies
+          command: npm install
       - run:
-          name: Setup app dependencies
-          command: |
-            npm install
-            npm install "scala-fun-client" --save --registry https://npm-proxy.fury.io/${FURY_TOKEN}/asarturas/
+          name: Build distribution
+          command: ng build --environment prod
+      - setup_remote_docker
       - run:
           name: Build docker image
           command: |
             apk add --no-cache docker
-            docker build -t "spikerlabs/scala-fun-frontend:$(git describe --tags)"
+            docker build -t "spikerlabs/scala-fun-frontend:$(git describe --tags)" .
       - deploy:
           name: Publish to Docker Hub
           command: |
