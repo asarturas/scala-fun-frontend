@@ -8,6 +8,7 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-webdriver-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
@@ -35,10 +36,24 @@ module.exports = function (config) {
               ? ['progress', 'coverage-istanbul']
               : ['progress', 'kjhtml'],
     port: 9876,
+    captureTimeout: 10000,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    // disabled for now because it hangs
+    // browsers: ['RemoteChrome'],
+    // customLaunchers: {
+    //   'RemoteChrome': {
+    //     base: 'WebDriver',
+    //     config: {
+    //       hostname: 'localhost',
+    //       port: '4444'
+    //     },
+    //     browserName: 'chrome',
+    //     name: 'Karma'
+    //   }
+    // },
     singleRun: false
   });
 };
