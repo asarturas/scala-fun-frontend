@@ -9,6 +9,9 @@ jobs:
       - run:
           name: install git
           command: apk add --no-cache git
+      - run:
+          name: install curl
+          command: apk add --no-cache curl
 # todo: configure tests to run in CI
 #      - run:
 #          name: Run test
