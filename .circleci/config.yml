@@ -55,8 +55,8 @@ jobs:
       - run:
           name: Select cluster
           command: |
-            gcloud config set project pairing-buddy
-            gcloud container clusters get-credentials pairing-buddy-2 --zone us-east1-d --project pairing-buddy
+            gcloud config set project spikerlabs
+            gcloud container clusters get-credentials spikerlabs --zone europe-west2-a --project spikerlabs
       - run:
           name: Deploy
           command: |
