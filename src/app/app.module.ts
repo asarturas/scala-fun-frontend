@@ -16,6 +16,7 @@ import { PlayerControlsComponent } from './player/controls.component';
 import { PlayerComponent } from './player/player.component';
 import {AboutComponent} from './layout/about.component';
 import {PlayerService} from './player.service';
+import {ApiBaseUrlEnv} from 'app/configuration';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {PlayerService} from './player.service';
     AboutComponent
   ],
   providers: [
+    ApiBaseUrlEnv,
     PlayerService
   ],
   bootstrap: [AppComponent]
