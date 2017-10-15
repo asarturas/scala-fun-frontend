@@ -6584,10 +6584,6 @@
       "integrity": "sha1-/YYxojvHgmvvXYcb24c3jJVkeCg=",
       "dev": true
     },
-    "scala-fun-client": {
-      "version": "file:../scala-fun-backend/api-client-js/src/main/resources/localbuild/scala-fun-client-0.1.0-1.tgz",
-      "integrity": "sha1-0BvmO5LwvWv16w1tkWaWNQjsQ3A="
-    },
     "script-loader": {
       "version": "https://registry.npmjs.org/script-loader/-/script-loader-0.7.0.tgz",
       "integrity": "sha1-aF3H5waeDe56kmdPDrxbD1W6pew=",
