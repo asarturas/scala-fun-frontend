@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://api.scala.fun'
+  apiBaseUrl: 'https://api.scala.fun'
 };
